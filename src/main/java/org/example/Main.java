@@ -1,17 +1,23 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import org.example.console.Console;
+import org.example.console.ConsoleView;
+import org.example.controller.UserController;
+import org.example.repository.UserRepository;
+import org.example.service.UserService;
+import org.example.utilita_hibernate.HibernateUtilita;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        UserRepository userRepository = new UserRepository();
+        UserService userService = new UserService(userRepository);
+        UserController userController = new UserController(userService);
+        Console console = new Console(userController);
+        ConsoleView consoleView = new ConsoleView(console);
+        consoleView.view();
+        HibernateUtilita.shutdown();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+
     }
 }

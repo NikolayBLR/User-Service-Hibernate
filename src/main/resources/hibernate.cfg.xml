@@ -12,11 +12,9 @@
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/userservice</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">Minsk2002</property>
-
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-
+        <mapping class="org.example.entity.User"/>
 
     </session-factory>
 </hibernate-configuration>

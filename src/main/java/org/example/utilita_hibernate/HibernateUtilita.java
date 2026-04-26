@@ -1,4 +1,4 @@
-package org.example;
+package org.example.utilita_hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,7 +14,7 @@ public class HibernateUtilita {
 
             sessionFactory = configuration.buildSessionFactory();
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
