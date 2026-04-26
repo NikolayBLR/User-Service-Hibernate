@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 @Slf4j
-@Getter
 public class UserRepository {
 
     public User saveUser(User user) {
