@@ -12,7 +12,7 @@ import org.example.utilita_hibernate.HibernateUtilita;
 public class Main {
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();
-        UserService userService = new UserService(userRepository,new UserMapperDTO());
+        UserService userService = new UserService(userRepository);
         UserController userController = new UserController(userService);
         Console console = new Console(userController);
         ConsoleView consoleView = new ConsoleView(console);

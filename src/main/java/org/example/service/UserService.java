@@ -11,9 +11,9 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapperDTO userMapperDTO;
 
-    public UserService(UserRepository userRepository,UserMapperDTO userMapperDTO) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.userMapperDTO = userMapperDTO;
+        this.userMapperDTO = new UserMapperDTO();
     }
 
     public RequestUser saveUser(ResponseUser responseuser) {
