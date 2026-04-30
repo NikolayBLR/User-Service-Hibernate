@@ -1,9 +1,10 @@
 package org.example.utilita_hibernate;
 
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+@Slf4j
 public class HibernateUtilita {
     private static SessionFactory sessionFactory;
 
@@ -14,7 +15,7 @@ public class HibernateUtilita {
 
             sessionFactory = configuration.buildSessionFactory();
         } catch (Exception e) {
-            System.err.println(e);
+            log.error("Ошибка: ", e);
         }
     }
 

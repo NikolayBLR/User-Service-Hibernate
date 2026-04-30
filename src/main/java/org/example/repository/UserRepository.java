@@ -1,7 +1,7 @@
 package org.example.repository;
 
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.example.dto.ResponseUser;
 import org.example.utilita_hibernate.HibernateUtilita;
 import org.example.entity.User;
 import org.hibernate.Session;
@@ -17,13 +17,6 @@ public class UserRepository {
             transaction = session.beginTransaction();
             session.persist(user);
             transaction.commit();
-            log.info("Создан и сохранен в базу данных пользователь: (id = {}, name = {}, email = {}, age = {}, created_at = {})",
-                    user.getId(),
-                    user.getName(),
-                    user.getEmail(),
-                    user.getAge(),
-                    user.getCreated_at());
-
             return user;
         } catch (Exception e) {
             if (transaction != null) {
@@ -46,14 +39,6 @@ public class UserRepository {
             if (user == null) {
                 log.info("Пользователь не найден с указанным id = {}", id);
                 return null;
-            }
-            if (user != null) {
-                log.info("Получен пользователь: (id = {}, name = {}, email = {}, age = {}, created_at = {})",
-                        user.getId(),
-                        user.getName(),
-                        user.getEmail(),
-                        user.getAge(),
-                        user.getCreated_at());
             }
             return user;
         } catch (Exception e) {
@@ -79,12 +64,6 @@ public class UserRepository {
             }
             session.remove(user);
             transaction.commit();
-            log.info("Удален пользователь: (id = {}, name = {}, email = {}, age = {}, created_at = {})",
-                    user.getId(),
-                    user.getName(),
-                    user.getEmail(),
-                    user.getAge(),
-                    user.getCreated_at());
             return user;
         } catch (Exception e) {
             if (transaction != null) {
@@ -111,14 +90,6 @@ public class UserRepository {
             user1.setAge(user.getAge());
             user1.setCreated_at(user.getCreated_at());
             transaction.commit();
-            if (user1 != null) {
-                log.info("Обновлен пользователь: (id = {}, name = {}, email = {}, age = {}, created_at = {})",
-                        user1.getId(),
-                        user1.getName(),
-                        user1.getEmail(),
-                        user1.getAge(),
-                        user1.getCreated_at());
-            }
             return user1;
         } catch (Exception e) {
             if (transaction != null) {

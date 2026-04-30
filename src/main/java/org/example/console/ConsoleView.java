@@ -1,7 +1,6 @@
 package org.example.console;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.User;
 
 import java.util.Scanner;
 
@@ -26,16 +25,16 @@ public class ConsoleView {
 
         switch (number) {
             case 1:
-                console.saveUser();
+                System.out.println(console.saveUser());
                 break;
             case 2:
-                console.updateUser();
+                System.out.println(console.updateUser());
                 break;
             case 3:
-                console.getUser();
+                System.out.println(console.getUser());
                 break;
             case 4:
-                console.deleteUser();
+                System.out.println(console.deleteUser());
                 break;
             default:
                 log.info("Такого номера с функцией не существует");

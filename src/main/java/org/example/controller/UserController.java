@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import org.example.dto.RequestUser;
+import org.example.dto.ResponseUser;
 import org.example.entity.User;
 import org.example.service.UserService;
 
@@ -10,19 +12,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    public User saveUser(User user) {
+    public RequestUser saveUser(ResponseUser user) {
         return userService.saveUser(user);
     }
 
-    public User getUser(Integer id) {
+    public RequestUser getUser(Integer id) {
         return userService.getUser(id);
     }
 
-    public User deleteUser(Integer id) {
+    public RequestUser deleteUser(Integer id) {
         return userService.deleteUser(id);
     }
 
-    public User updateUser(Integer id, User user) {
+    public RequestUser updateUser(Integer id, ResponseUser user) {
         return userService.updateUser(id, user);
     }
 
